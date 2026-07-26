@@ -27,7 +27,6 @@ import {
   FiDroplet,
   FiThermometer,
   FiTrendingUp,
-  FiSun,
   FiInfo,
 } from "react-icons/fi";
 import type { EvaluationResponse } from "../types";
@@ -56,7 +55,7 @@ export function ResultsDashboard({ result, onBack }: ResultsDashboardProps) {
   const chartData = [
     {
       name: t.results.temperature,
-      value: result.temperature,
+      value: Math.round(result.temperature * 10) / 10,
       unit: "°C",
       fill: "#ee7722",
     },
@@ -65,12 +64,6 @@ export function ResultsDashboard({ result, onBack }: ResultsDashboardProps) {
       value: result.precipitation,
       unit: "mm",
       fill: "#3b82f6",
-    },
-    {
-      name: t.results.humidity,
-      value: result.humidity,
-      unit: "%",
-      fill: "#2d6a4f",
     },
     {
       name: t.results.soilMoisture,
@@ -156,7 +149,7 @@ export function ResultsDashboard({ result, onBack }: ResultsDashboardProps) {
           <StatCard
             icon={FiThermometer}
             label={t.results.temperature}
-            value={`${result.temperature}°C`}
+            value={`${result.temperature.toFixed(1)}°C`}
             color="earth.500"
           />
           <StatCard
@@ -164,12 +157,6 @@ export function ResultsDashboard({ result, onBack }: ResultsDashboardProps) {
             label={t.results.precipitation}
             value={`${result.precipitation} mm`}
             color="blue.500"
-          />
-          <StatCard
-            icon={FiSun}
-            label={t.results.humidity}
-            value={`${result.humidity}%`}
-            color="brand.500"
           />
           <StatCard
             icon={FiDroplet}

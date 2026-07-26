@@ -27,7 +27,6 @@ export interface EvaluationResponse {
   plantingDate: string;
   temperature: number;
   precipitation: number;
-  humidity: number;
   soilMoisture: number;
   elevation: number;
   score: number;

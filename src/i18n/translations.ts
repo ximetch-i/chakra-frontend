@@ -20,7 +20,6 @@ export const translations = {
       elevation: "Elevación",
       temperature: "Temperatura",
       precipitation: "Precipitación",
-      humidity: "Humedad",
       soilMoisture: "Humedad Suelo",
       climateData: "Datos climáticos históricos",
       recommendation: "Recomendación",
@@ -52,7 +51,6 @@ export const translations = {
       elevation: "Elevation",
       temperature: "Temperature",
       precipitation: "Precipitation",
-      humidity: "Humidity",
       soilMoisture: "Soil moisture",
       climateData: "Historical climate data",
       recommendation: "Recommendation",
@@ -71,7 +69,7 @@ export const translations = {
 export type TranslationKeys = {
   app: { subtitle: string; error: string };
   form: { district: string; districtPlaceholder: string; crop: string; cropPlaceholder: string; plantingDate: string; submit: string };
-  results: { newEvaluation: string; plantingDate: string; elevation: string; temperature: string; precipitation: string; humidity: string; soilMoisture: string; climateData: string; recommendation: string; evaluateAnother: string };
+  results: { newEvaluation: string; plantingDate: string; elevation: string; temperature: string; precipitation: string; soilMoisture: string; climateData: string; recommendation: string; evaluateAnother: string };
   risk: Record<string, { label: string; description: string }>;
   dateLocale: string;
 };
