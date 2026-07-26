@@ -52,6 +52,15 @@ export function ResultsDashboard({ result, onBack }: ResultsDashboardProps) {
   const riskInfo = t.risk[result.riskLevel];
   const riskStyle = RISK_STYLES[result.riskLevel] ?? { color: "white", bg: "gray.500" };
 
+  const cropName = t.crop[result.crop] ?? result.crop;
+  const factorText = t.limitingFactor[result.limitingFactor] ?? t.limitingFactor.default;
+  const recommendationFn = t.recommendation[result.riskLevel];
+  const recommendation = recommendationFn
+    ? result.riskLevel === "FAVORABLE"
+      ? recommendationFn(cropName)
+      : recommendationFn(cropName, factorText)
+    : "";
+
   const chartData = [
     {
       name: t.results.temperature,
@@ -210,7 +219,7 @@ export function ResultsDashboard({ result, onBack }: ResultsDashboardProps) {
                   {t.results.recommendation}
                 </Heading>
                 <Text fontSize="md" color="gray.700" lineHeight="tall">
-                  {result.recommendation}
+                  {recommendation}
                 </Text>
               </VStack>
             </Stack>

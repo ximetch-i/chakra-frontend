@@ -31,7 +31,7 @@ export interface EvaluationResponse {
   elevation: number;
   score: number;
   riskLevel: RiskLevel;
-  recommendation: string;
+  limitingFactor: string;
   createdAt: string;
 }
 
